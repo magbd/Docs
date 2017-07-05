@@ -21,7 +21,7 @@ Pr ne pas répéter ds chaque méthode une const qui récupère les props :
 ```javascript
 const { data } = this.props 	//après on utilise direct data
 ```
-On déclare un getter (=méthode) :
+On déclare un getter _(méthode)_ :
 ```javascript
 get data() { 
 return this.props.data 
