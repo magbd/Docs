@@ -88,29 +88,28 @@ src/
 * le fichier `selectors.js` _(optionnel)_ déclare et exporte les selectors Redux
 * le fichier `types.js` _(optionnel)_ déclare et exporte des types
 
-## Exemple de fichier `index.js` (complet) :
+## Exemple de fichier `index.js` :
 
 ```jsx
 // @flow
 
 import * as actions from './actions'
 import * as actionTypes from './actionTypes'
-import * as constants from './constants'
-import * as model from './model'
 import reducer from './reducer'
-import saga from './saga'
-import * as selectors from './selectors'
-
-import MyFeatureComponent from './components/SomeFeatureComponent'
+import SomeComponent from './components/SomeComponent'
 
 export default {
   actions,
   actionTypes,
-  constants,
-  components: { SomeFeatureComponent },
-  model,
   reducer,
-  saga,
-  selectors
+  SomeComponent
 }
+```
+
+1. Importer les actions, reducers, types, components ...  
+2. Exporter chaque import pour les rendre accessibles  
+3. /!\ Les exports seront accessibles tels que :   
+
+```jsx
+import { SomeComponent } from './modules/ModuleFeature'
 ```
