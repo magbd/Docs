@@ -5,12 +5,12 @@
 body {
     -webkit-font-smoothing: antialiased;
 }
-````
+```
 
 ## Supprimer sélection élément (click):
 ```css
 pointer-events: none;
-````
+```
 
 ## Supprimer sélection texte :
 ```css

@@ -12,7 +12,7 @@ src
 ├── routes.js   
 ```
 
-# Components
+## Components
 core ou common = modules bas niveau  
 => vue uniquement.  
 Pas de reducers  
@@ -22,7 +22,7 @@ Aucune logique métier contenue (ex: button)
 >* les fichiers `.js` et `.css` d'un composant doivent être disposés à plat à la racine du dossier
 >* les tests unitaires doivent se trouver dans un sous-dossier `__tests__/` avec l'extension `.test.js`
 
-# Modules
+## Modules
 /!\ dépendances cycliques (sortie erreur console => import undefined)  
 Un module ne doit pas dépendre d’un autre module.
 >_Conventions :_
@@ -31,11 +31,11 @@ Un module ne doit pas dépendre d’un autre module.
 >* peuvent posséder un dossier `components/` regroupant tous les composants liés à la fonctionnalité du module
 >* peuvent être en charge d'un domaine de l'état Redux et doivent à ce titre posséder au minimum les fichiers `reducer.js` et `types.js` (optionnellement  les fichiers `actions.js`, `actionTypes.js`, `model.js`, `saga.js` et `selectors.js`)
 
-# Model.js
+## Model.js
 => méthodes utilitaires (services)   
 Fonctions pures.
 
-# Selectors.js
+## Selectors.js
 => calcul des valeurs depuis l’état.  
 Envoi la donnée traitée triée au component.
 
