@@ -40,7 +40,9 @@ constructor (props) {
 
 ### - lifecycle method  
 
-componentDidMount(), componentWillMount(), componentWillUnmount() ...
+`componentWillMount()`      = insertion DOM  
+`componentDidMount()`       = inséré dans le DOM  
+`componentWillUnmount()`    = retire du DOM
 
 ```javascript
 componentWillMount() {
