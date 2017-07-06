@@ -14,7 +14,8 @@ src
 
 # Components
 core ou common = modules bas niveau  
-=> vue uniquement. Pas de reducers  
+=> vue uniquement.  
+Pas de reducers  
 Aucune logique métier contenue (ex: button)
 >_Conventions :_
 >* les composants ne doivent rien importer en provenance des dossiers `modules/` et `services/`
@@ -24,8 +25,8 @@ Aucune logique métier contenue (ex: button)
 # Modules
 /!\ dépendances cycliques (sortie erreur console => import undefined)  
 Un module ne doit pas dépendre d’un autre module.
-doivent impérativement posséder un fichier `index.js` servant de point d'entrée du module
 >_Conventions :_
+>* doivent impérativement posséder un fichier `index.js` servant de point d'entrée du module
 >* ne doivent pas importer les fonctionnalités d'autres modules sans passer par le fichier `index.js` de ces modules
 >* peuvent posséder un dossier `components/` regroupant tous les composants liés à la fonctionnalité du module
 >* peuvent être en charge d'un domaine de l'état Redux et doivent à ce titre posséder au minimum les fichiers `reducer.js` et `types.js` (optionnellement  les fichiers `actions.js`, `actionTypes.js`, `model.js`, `saga.js` et `selectors.js`)
