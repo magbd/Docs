@@ -80,4 +80,50 @@ isResponsiveMenu = () => {
 }
 ```
 
- 
+ ## Types
+
+### Proptypes
+
+```jsx
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const component = ({ props1, props2, props3 }) => {
+
+  return (
+    <div>
+    </div>
+  )
+}
+
+component.propTypes = {
+   props1: PropTypes.string,
+   props2: PropTypes.number,
+   props3: PropTypes.boolean
+}
+
+export default DropdownMenuItem
+```
+
+### Flow
+
+1. Typage direct dans le fichier
+
+
+2. Typage des props dans un fichier dédié
+
+`component.js`
+```jsx
+//@flow
+import React from 'react'
+
+const component = ({ props1, props2, props3 }: componentProps) => {
+
+  return (
+    <div>
+    </div>
+  )
+}
+```
+
+`componentProps.js`
