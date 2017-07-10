@@ -107,6 +107,8 @@ export default DropdownMenuItem
 
 ### Flow
 
+[Doc Flow](https://flow.org/)
+
 1. Typage direct dans le fichier
 
 
@@ -127,3 +129,11 @@ const component = ({ props1, props2, props3 }: componentProps) => {
 ```
 
 `componentProps.js`
+```jsx
+// @flow
+export type DropdownMenuItemProps = {
+  props1: string,
+  props2: string,
+  props3: string
+}
+```

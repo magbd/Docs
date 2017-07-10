@@ -2,7 +2,7 @@
 
 ## Start
 `npm i --save-dev jest`     [Doc](https://facebook.github.io/jest/docs/en/getting-started.html)  
-`npm i --save-dev enzyme`   [Doc](https://github.com/airbnb/enzyme)
+`npm i --save-dev enzyme`   [Doc](http://airbnb.io/enzyme/index.html)
 
 * importer React et la méthode shallow de Enzyme
 * importer le module à tester
@@ -25,17 +25,40 @@ Tester la présence des classes permet de vérifier que les éléments attendus 
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { DropdownMenu } from 'modules/routing'
+import { Component } from 'modules/component'
+import { SubComponent } from 'modules/component'
 
-describe('DropdownMenu tests', () => {
-    test('DropdownMenu render', () => {
-        const wrapper = shallow(<DropdownMenu/>)
-        expect(wrapper.find('.DropdownMenu')).toHaveLength(1)
+describe('Component tests', () => {
+    test('Component render', () => {
+        const wrapper = shallow(<Component/>)
+        expect(wrapper.find('.Component')).toHaveLength(1) //test class
+        expect(wrapper.find(SubComponent)).toHaveLength(2) // test présence d'un autre component intégré
     })
 })
 ```
 
 ## 2. Tester les props
+
+```jsx
+import { Component } from 'modules/component'
+import FontAwesome from 'react-fontawesome'
+
+describe('Component tests', () => {
+
+  test('Component has props', () => {
+    const props = {
+      label: 'Label',
+      subLabel: 'SubLabel',
+      icon: 'Icon'
+    }
+    const wrapper = shallow(<Component {...props} />)
+    expect(wrapper.find('.Component--label').text()).toEqual(props.label) // => <div className="DropdownMenuItem--label" >{label}</div>
+    expect(wrapper.find('.Component--subLabel').text()).toEqual(props.subLabel)
+    expect(wrapper.find(FontAwesome).prop('name')).toEqual(props.icon) // => <FontAwesome className="DropdownMenuItem--icon" name={icon} />
+  })
+
+})
+```
 
 ## 3. Tester les fonctions
 
