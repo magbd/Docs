@@ -77,7 +77,7 @@ describe('Component tests', () => {
 * `onChange` => `.simulate('change')`
 
 _Exemple :_
-```jsx
+```javascript
 test('Toggle Dropdown', () => {
     const wrapper = shallow(<RightToolbar {...props}/>)
     wrapper.find('.RightToolbar--dropdown').first().simulate('click') // simule le click
@@ -97,8 +97,88 @@ test('Toggle Dropdown', () => {
   })
 ```
 
+## 4. Tester le store
 
+Importer le reducer à tester avec son INITIAL_STATE, et les actions qui permettent d'interagir avec le reducer
 
+```jsx
+import userReducer, { INITIAL_STATE } from './user.reducer'
+import {
+  FETCH_USER_REQUEST,
+  FETCH_USER_SUCCESS,
+  FETCH_USER_FAILURE,
+  SELECT_PLATFORM
+} from './user.actions'
+```
+
+Tester le chaque état lors du chargement de la data (REQUEST, SUCCESS, FAILURE)
+```jsx
+describe('User reducer test', () => {
+
+  test('Fetch user request', () => {
+    expect(userReducer(INITIAL_STATE, { type: FETCH_USER_REQUEST })).toEqual({
+      ...INITIAL_STATE,
+      isFetching: true
+    })
+  })
+
+  test('Fetch user success', () => {
+    const user = {
+      id: 0,
+      platforms: []
+    }
+    const action = { type: FETCH_USER_SUCCESS, payload: user }
+    expect(userReducer(INITIAL_STATE, action)).toEqual({
+      ...INITIAL_STATE,
+      userData: user
+    })
+  })
+
+  test('Fetch user failure', () => {
+    const action = {type: FETCH_USER_FAILURE, payload: 'ERROR' }
+    expect(userReducer(INITIAL_STATE, action)).toEqual({
+      ...INITIAL_STATE,
+      error: 'ERROR'
+    })
+  })
+
+})
+```
+
+Tester le résultats des autres actions
+
+```jsx
+test('Select platform', () => {
+    const state = {
+      ...INITIAL_STATE,
+      platforms: [
+        { id: 1, name: 'tabmo', organizations: [ { id: 11, name: 'orga' } ] },
+        { id: 2, name: 'tabmo-test', organizations: [ { id: 22, name: 'orga' } ] }
+      ]
+    }
+    const action = { type: SELECT_PLATFORM, payload: 1 }
+    expect(platform(state, action)).toEqual({
+      ...state,
+      selectedPlatform: { id: 1, name: 'tabmo', organizations: [ { id: 11, name: 'orga' } ] },
+      selectedOrganization: { id: 11, name: 'orga' }
+    })
+  })
+
+  test('Select organization', () => {
+    const state = {
+      ...INITIAL_STATE,
+      selectedPlatform: {
+        id: 1,
+        name: 'tabmo',
+         organizations: [ { id: 11, name: 'orga' }, { id: 12, name: 'agro' } ] }
+    }
+    const action = { type: SELECT_ORGANIZATION, payload: 12 }
+    expect(platform(state, action)).toEqual({
+      ...state,
+      selectedOrganization: { id: 12, name: 'agro' }
+    })
+  })
+```
 ## Debug  
 
 Affiche dans le terminal le DOM virtuel qui est monté par le component wrappé

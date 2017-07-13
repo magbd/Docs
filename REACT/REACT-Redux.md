@@ -2,6 +2,8 @@
 
 L'utilisation de Redux va amener une organisation du code qui découple complètement la partie affichage des données de la partie code métier dans les reducers.
 
+![Image flow redux](../img/redux.png)
+
 ## Créer un store avec REDUX
 
 ```
