@@ -1,5 +1,7 @@
 # Notes React
 
+React est une bibliothèque qui permet de créer des composants réutilisables pour construire des interfaces graphiques. Elle peut être utilisée côté client ou côté serveur. Ce n'est pas un framework. Il n'y a pas de paradigme attenant à la technologie elle-même.
+
 ## Start projet
  
 [Lien doc create-react-app](https://github.com/facebookincubator/create-react-app)
@@ -18,11 +20,11 @@ npm start
 
 _Dans un component class_  
 Pr ne pas répéter ds chaque méthode une const qui récupère les props :
-```javascript
+```jsx
 const { data } = this.props 	//après on utilise direct data
 ```
 On déclare un getter _(méthode)_ :
-```javascript
+```jsx
 get data() { 
 return this.props.data 
 }				//après on peut utiliser this.data dans les méthodes
@@ -31,7 +33,7 @@ return this.props.data
 ## Déclarer un state local ds un component
 
 ### - class constructor
-```javascript
+```jsx
 constructor (props) {
 	super (props)
 	this.state = { data: [ ] }
@@ -44,7 +46,7 @@ constructor (props) {
 `componentDidMount()`       = inséré dans le DOM  
 `componentWillUnmount()`    = retire du DOM
 
-```javascript
+```jsx
 componentWillMount() {
 	this.state = { data: [ ] }
 }
@@ -53,7 +55,7 @@ componentWillMount() {
 >On peut utiliser WillUnmount pour “détruire” l’état du component, un eventListner …  
 Example avec un listener qui écoute le changement de dimension de la fenêtre :
 
-```javascript
+```jsx
 componentWillMount() {
     this.state = {
         responsiveMenu: this.isResponsiveMenu(),
@@ -78,6 +80,22 @@ handleResize = () => { 	//fonction fléchée pour ne pas binder le this au state
 isResponsiveMenu = () => {
     return window.innerWidth < 1020
 }
+```
+
+ ## Compose
+
+Permet de combiner des fonctions à l'export du component.
+_Exemple :_ connect + onClickOutside
+
+```jsx
+import { connect } from 'react-redux'
+import onClickOutside from 'react-onclickoutside'
+import { compose } from 'recompose'
+  ...
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  onClickOutside
+)(ComponentName)
 ```
 
  ## Types
@@ -109,6 +127,14 @@ export default DropdownMenuItem
 
 [Doc Flow](https://flow.org/)
 
+Les types possibles :
+* `?variableValue` => maybe
+* `any`
+* `Function`
+* `string`
+* `number`
+* `boolean`
+
 1. Typage direct dans le fichier
 
 
@@ -137,3 +163,12 @@ export type DropdownMenuItemProps = {
   props3: string
 }
 ```
+
+## Plugin react
+
+* onclickoutside
+* fontawesome
+* translate
+* Velocity
+
+* Redux Form

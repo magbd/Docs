@@ -1,5 +1,7 @@
 # React + Redux
 
+L'utilisation de Redux va amener une organisation du code qui découple complètement la partie affichage des données de la partie code métier dans les reducers.
+
 ## Créer un store avec REDUX
 
 ```
@@ -18,7 +20,6 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div className=”App”>
-                
                 </div>
             </Provider>
         )
@@ -172,5 +173,7 @@ function mapDispatchToProps(dispatch) {
 
 *  Exporter via connect
 ```jsx
+import { connect } from 'react-redux'
+    ...
 export default connect(mapStateToProps, mapDispatchToProps)(monComponent)
 ```
