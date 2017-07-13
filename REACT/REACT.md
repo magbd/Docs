@@ -18,7 +18,6 @@ npm start
 
 ## Getter
 
-_Dans un component class_  
 Pr ne pas répéter ds chaque méthode une const qui récupère les props :
 ```jsx
 const { data } = this.props 	//après on utilise direct data
@@ -30,9 +29,47 @@ return this.props.data
 }				//après on peut utiliser this.data dans les méthodes
 ```
  
-## Déclarer un state local ds un component
+## Component
 
-### - class constructor
+### 1 Component stateless
+
+```jsx
+const componentName = (props) => {
+
+  function renderSomething() {
+    return // ...
+  }
+
+  return (
+    <div>
+      {renderSomething()}
+    </div>
+  )
+
+}
+```
+
+### 2 Component stateful (state local et/ou store pour passer les props)
+
+```jsx
+class componentName extends React.Component {
+
+  renderSomething() {
+      return // ...
+    }
+
+  render() {
+    return (
+      <div>
+        {this.renderSomething()}
+      </div>
+    )
+  }
+
+}
+```
+
+#### 2.1 class constructor
 ```jsx
 constructor (props) {
 	super (props)
@@ -40,7 +77,7 @@ constructor (props) {
 }
 ```
 
-### - lifecycle method  
+#### 2.2 lifecycle method  
 
 `componentWillMount()`      = insertion DOM  
 `componentDidMount()`       = inséré dans le DOM  
