@@ -206,6 +206,4 @@ export type DropdownMenuItemProps = {
 * onclickoutside
 * fontawesome
 * translate
-* Velocity
-
-* Redux Form
+* 

@@ -35,6 +35,7 @@ describe('Component tests', () => {
         const wrapper = shallow(<Component/>)
         expect(wrapper.find('.Component')).toHaveLength(1) //test class
         expect(wrapper.find(SubComponent)).toHaveLength(2) // test présence d'un autre component intégré
+        wrapper.unmount() //démonte le wrapper
     })
 })
 ```
@@ -65,6 +66,7 @@ describe('Component tests', () => {
     expect(wrapper.find('.Component--subLabel').text()).toEqual(props.subLabel)
     expect(wrapper.find(FontAwesome).prop('name')).toEqual(props.icon) 
     // => <FontAwesome className="DropdownMenuItem--icon" name={icon} />
+    wrapper.unmount()
   })
 
 })
@@ -94,6 +96,7 @@ test('Toggle Dropdown', () => {
     expect(
       wrapper.state('openDropdown')
     ).toBeFalsy() // vérifie que le changement du state est bien passé à false
+    wrapper.unmount()
   })
 ```
 
