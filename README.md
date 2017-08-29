@@ -2,10 +2,11 @@
 
 Contenu :
 - CSS
-  - [CSS-Tricks](CSS-Tricks.md)
-  - [CSS Less](CSS-Less.md)
+  - [CSS-Tricks](CSS/CSS-Tricks.md)
+  - [CSS Less](CSS/CSS-Less.md)
 - JSS 
-  - [JS-ES6](JS-ES6.md)
+  - [JS-ES6](JS/JS-ES6.md)
+  - [Fetch API](JS/FetchAPI.md)
 - React
   - [React](REACT/REACT.md)
   - [React + Redux](REACT/REACT.md)
