@@ -11,6 +11,7 @@ Contenu :
   - [React](REACT/REACT.md)
   - [React + Redux](REACT/REACT.md)
   - [React: Redux Saga](REACT/React-ReduxSaga.md)
+  - [React: Router](REACT/React-Router.md)
   - [React: Architecture projet](REACT/REACT-Architecture.md)
   - [React: Tests Unitaires](REACT/React-UnitTests.md)
 
