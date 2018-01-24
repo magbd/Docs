@@ -8,6 +8,7 @@ On accède à l'objet `history` par le [contexte](https://facebook.github.io/rea
 Il faut donc importer les Prop-Types.
 
 ### 1. Composant stateless
+> Le contexte vient en second argument, après les props
 Avec destructuration :
 ```
 import PropTypes from 'prop-types'
